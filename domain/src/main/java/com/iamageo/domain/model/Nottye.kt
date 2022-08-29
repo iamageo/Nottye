@@ -8,7 +8,7 @@ data class Nottye(
     val title: String,
     val content: String,
     val timestamp: Long,
-    val valcolor: Int,
+    val color: Int,
     @PrimaryKey val id: Int? = null
 ) {
     companion object {
