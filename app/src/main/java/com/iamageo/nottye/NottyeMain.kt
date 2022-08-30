@@ -3,13 +3,12 @@ package com.iamageo.nottye
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
+import androidx.compose.material.Scaffold
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.ui.graphics.Color
 import com.iamageo.nottye.ui.theme.NottyeTheme
 
 class NottyeMain : ComponentActivity() {
@@ -17,9 +16,15 @@ class NottyeMain : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NottyeTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                Scaffold(
+                    floatingActionButton = {
+                        FloatingActionButton(
+                            onClick = { },
+                            backgroundColor = Color.Black
+                        ) {
+                            Icon(imageVector = Icons.Default.Add, tint = Color.White, contentDescription = "Add")
+                        }
+                    }
                 ) {
 
                 }
