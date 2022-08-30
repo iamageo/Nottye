@@ -3,12 +3,12 @@ package com.iamageo.nottye
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
-import androidx.compose.material.Scaffold
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.ui.graphics.Color
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.iamageo.nottye.ui.screens.NottyeHomeScreen
 import com.iamageo.nottye.ui.theme.NottyeTheme
 
 class NottyeMain : ComponentActivity() {
@@ -16,17 +16,19 @@ class NottyeMain : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NottyeTheme {
-                Scaffold(
-                    floatingActionButton = {
-                        FloatingActionButton(
-                            onClick = { },
-                            backgroundColor = Color.Black
-                        ) {
-                            Icon(imageVector = Icons.Default.Add, tint = Color.White, contentDescription = "Add")
+                Surface(
+                    color = MaterialTheme.colors.background
+                ) {
+                    val navController = rememberNavController()
+
+                    NavHost(
+                        navController = navController,
+                        startDestination = Screens.NottyeHomeScreen.route
+                    ) {
+                        composable(route = Screens.NottyeHomeScreen.route) {
+                            NottyeHomeScreen(navController = navController)
                         }
                     }
-                ) {
-
                 }
             }
         }
