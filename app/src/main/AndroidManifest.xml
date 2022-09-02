@@ -4,6 +4,7 @@
     package="com.iamageo.nottye">
 
     <application
+        android:name=".di.NottyeApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"

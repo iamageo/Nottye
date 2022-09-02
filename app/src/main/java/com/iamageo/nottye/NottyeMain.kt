@@ -14,6 +14,7 @@ import com.iamageo.nottye.ui.theme.NottyeTheme
 import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NottyeMain : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

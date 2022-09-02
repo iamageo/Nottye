@@ -9,9 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.iamageo.domain.util.NoteOrder
 import com.iamageo.domain.util.OrderType
@@ -24,6 +24,9 @@ fun NottyeHomeScreen(
     navController: NavController,
     viewModel: NottyeViewModel = viewModel()
 ) {
+
+    val state = viewModel.state.value
+
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
@@ -53,7 +56,9 @@ fun NottyeHomeScreen(
                         modifier = Modifier.padding(start = 8.dp)
                     )
                     Row() {
-                        TopBarItem(icon = R.drawable.ic_sort) {}
+                        TopBarItem(icon = R.drawable.ic_sort) {
+                            viewModel.onEvent(NottyeEvents.ToggleOrderSection)
+                        }
                         TopBarItem(icon = R.drawable.ic_settings) {}
                     }
                 }
@@ -66,9 +71,9 @@ fun NottyeHomeScreen(
                 .padding(16.dp)
         ) {
             AnimatedVisibility(
-                visible = false,
+                visible = state.isOrderSectionVisible,
                 enter = fadeIn() + slideInVertically(),
-                exit = fadeOut() + slideOutVertically()
+                exit = fadeOut()
             ) {
                 OrderSection(
                     modifier = Modifier
@@ -76,7 +81,7 @@ fun NottyeHomeScreen(
                         .padding(vertical = 16.dp),
                     noteOrder = NoteOrder.Date(OrderType.Ascending),
                     onOrderChange = {
-                        //viewModel.onEvent(NotesEvent.Order(it))
+                        viewModel.onEvent(NottyeEvents.Order(it))
                     }
                 )
             }
@@ -88,7 +93,7 @@ fun NottyeHomeScreen(
 private fun TopBarItem(icon: Int, onClick: () -> Unit) {
     IconButton(
         onClick = {
-            onClick()
+            onClick.invoke()
         },
     ) {
         Icon(
