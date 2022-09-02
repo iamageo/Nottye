@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.iamageo.nottye.ui.screens.addedit.AddEditNottyeScreen
 import com.iamageo.nottye.ui.screens.home.NottyeHomeScreen
 import com.iamageo.nottye.ui.screens.home.NottyeViewModel
 import com.iamageo.nottye.ui.theme.NottyeTheme
@@ -31,6 +32,9 @@ class NottyeMain : ComponentActivity() {
                     ) {
                         composable(route = Screens.NottyeHomeScreen.route) {
                             NottyeHomeScreen(navController = navController)
+                        }
+                        composable(route = Screens.NottyeAddEditScreen.route) {
+                            AddEditNottyeScreen(navController = navController)
                         }
                     }
                 }

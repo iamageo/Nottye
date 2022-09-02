@@ -16,6 +16,7 @@ import androidx.navigation.NavController
 import com.iamageo.domain.util.NoteOrder
 import com.iamageo.domain.util.OrderType
 import com.iamageo.nottye.R
+import com.iamageo.nottye.Screens
 import com.iamageo.nottye.ui.screens.home.components.OrderSection
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -30,7 +31,9 @@ fun NottyeHomeScreen(
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { },
+                onClick = {
+                    navController.navigate(Screens.NottyeAddEditScreen.route)
+                },
                 backgroundColor = Color.Black
             ) {
                 Icon(
@@ -41,26 +44,21 @@ fun NottyeHomeScreen(
             }
         },
         topBar = {
-            TopAppBar(
-                backgroundColor = Color.Transparent,
-                elevation = 2.dp
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = "Nottye",
-                        style = MaterialTheme.typography.h4,
-                        modifier = Modifier.padding(start = 8.dp)
-                    )
-                    Row() {
-                        TopBarItem(icon = R.drawable.ic_sort) {
-                            viewModel.onEvent(NottyeEvents.ToggleOrderSection)
-                        }
-                        TopBarItem(icon = R.drawable.ic_settings) {}
+                Text(
+                    text = "Nottye",
+                    style = MaterialTheme.typography.h4,
+                    modifier = Modifier.padding(start = 8.dp)
+                )
+                Row() {
+                    TopBarItem(icon = R.drawable.ic_sort) {
+                        viewModel.onEvent(NottyeEvents.ToggleOrderSection)
                     }
+                    TopBarItem(icon = R.drawable.ic_settings) {}
                 }
             }
         }
@@ -90,7 +88,7 @@ fun NottyeHomeScreen(
 }
 
 @Composable
-private fun TopBarItem(icon: Int, onClick: () -> Unit) {
+fun TopBarItem(icon: Int, onClick: () -> Unit) {
     IconButton(
         onClick = {
             onClick.invoke()
