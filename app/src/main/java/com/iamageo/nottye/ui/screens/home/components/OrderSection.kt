@@ -1,4 +1,4 @@
-package com.iamageo.nottye.ui.screens.components
+package com.iamageo.nottye.ui.screens.home.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable

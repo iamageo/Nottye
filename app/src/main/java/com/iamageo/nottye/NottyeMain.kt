@@ -8,8 +8,11 @@ import androidx.compose.material.Surface
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.iamageo.nottye.ui.screens.NottyeHomeScreen
+import com.iamageo.nottye.ui.screens.home.NottyeHomeScreen
+import com.iamageo.nottye.ui.screens.home.NottyeViewModel
 import com.iamageo.nottye.ui.theme.NottyeTheme
+import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
 
 class NottyeMain : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

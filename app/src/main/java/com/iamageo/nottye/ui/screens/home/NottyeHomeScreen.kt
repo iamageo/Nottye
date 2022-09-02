@@ -1,4 +1,4 @@
-package com.iamageo.nottye.ui.screens
+package com.iamageo.nottye.ui.screens.home
 
 import androidx.compose.animation.*
 import androidx.compose.foundation.layout.*
@@ -9,19 +9,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.testTag
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.iamageo.domain.util.NoteOrder
 import com.iamageo.domain.util.OrderType
 import com.iamageo.nottye.R
-import com.iamageo.nottye.ui.screens.components.OrderSection
+import com.iamageo.nottye.ui.screens.home.components.OrderSection
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun NottyeHomeScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: NottyeViewModel = viewModel()
 ) {
     Scaffold(
         floatingActionButton = {
@@ -65,7 +66,7 @@ fun NottyeHomeScreen(
                 .padding(16.dp)
         ) {
             AnimatedVisibility(
-                visible = true,
+                visible = false,
                 enter = fadeIn() + slideInVertically(),
                 exit = fadeOut() + slideOutVertically()
             ) {

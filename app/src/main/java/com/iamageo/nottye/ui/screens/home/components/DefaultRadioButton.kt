@@ -1,4 +1,4 @@
-package com.iamageo.nottye.ui.screens.components
+package com.iamageo.nottye.ui.screens.home.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
