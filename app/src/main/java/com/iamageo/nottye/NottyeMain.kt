@@ -10,9 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.iamageo.nottye.ui.screens.addedit.AddEditNottyeScreen
 import com.iamageo.nottye.ui.screens.home.NottyeHomeScreen
-import com.iamageo.nottye.ui.screens.home.NottyeViewModel
 import com.iamageo.nottye.ui.theme.NottyeTheme
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +32,8 @@ class NottyeMain : ComponentActivity() {
                             NottyeHomeScreen(navController = navController)
                         }
                         composable(route = Screens.NottyeAddEditScreen.route) {
-                            AddEditNottyeScreen(navController = navController)
+                            val color = it.arguments?.getInt("noteColor") ?: -1
+                            AddEditNottyeScreen(navController = navController, noteColor = color)
                         }
                     }
                 }
