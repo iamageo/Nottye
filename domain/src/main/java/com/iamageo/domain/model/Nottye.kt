@@ -16,4 +16,4 @@ data class Nottye(
     }
 }
 
-class InvalidNoteException(message: String): Exception(message)
+class InvalidNottyeException(message: String): Exception(message)
