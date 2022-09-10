@@ -11,6 +11,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -28,6 +29,7 @@ import com.iamageo.nottye.Screens
 import com.iamageo.nottye.Utils.Companion.NottyeColors
 import com.iamageo.nottye.ui.screens.addedit.components.NottyeEditText
 import com.iamageo.nottye.ui.screens.home.TopBarItem
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @Composable
@@ -49,11 +51,24 @@ fun AddEditNottyeScreen(
         )
     }
 
+    LaunchedEffect(key1 = true) {
+        addEditNottyeViewModel.eventFlow.collectLatest { event ->
+            when(event) {
+                is AddEditNottyeViewModel.UiEvents.ShowSnackbar -> {
+                }
+                is AddEditNottyeViewModel.UiEvents.SaveNottye -> {
+                    navController.navigateUp()
+                }
+            }
+        }
+    }
+
+
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                          addEditNottyeViewModel.onEvent(AddEditNottyeEvents.SaveNote)
+                    addEditNottyeViewModel.onEvent(AddEditNottyeEvents.SaveNote)
                 },
                 backgroundColor = Color.Black
             ) {
