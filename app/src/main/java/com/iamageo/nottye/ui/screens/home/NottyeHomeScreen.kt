@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.iamageo.domain.util.NoteOrder
@@ -23,7 +24,7 @@ import com.iamageo.nottye.ui.screens.home.components.OrderSection
 @Composable
 fun NottyeHomeScreen(
     navController: NavController,
-    viewModel: NottyeViewModel = viewModel()
+    viewModel: NottyeViewModel = hiltViewModel()
 ) {
 
     val state = viewModel.state.value
