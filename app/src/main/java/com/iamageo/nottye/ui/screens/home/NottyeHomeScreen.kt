@@ -88,13 +88,13 @@ fun NottyeHomeScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 16.dp),
-                    noteOrder = NoteOrder.Date(OrderType.Ascending),
+                    noteOrder = state.noteOrder,
                     onOrderChange = {
                         viewModel.onEvent(NottyeEvents.Order(it))
                     }
                 )
             }
-
+            Spacer(modifier = Modifier.height(16.dp))
             LazyColumn(
                 modifier = Modifier.fillMaxSize()
             ) {
