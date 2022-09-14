@@ -6,6 +6,6 @@ import com.iamageo.domain.util.NoteOrder
 sealed class NottyeEvents {
     data class Order(val noteOrder: NoteOrder) : NottyeEvents()
     object RestoreNottye : NottyeEvents()
-    data class DeleteNote(val nottye: Nottye) : NottyeEvents()
+    data class DeleteNottye(val nottye: Nottye) : NottyeEvents()
     object ToggleOrderSection : NottyeEvents()
 }

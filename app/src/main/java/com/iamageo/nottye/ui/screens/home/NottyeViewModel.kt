@@ -36,6 +36,12 @@ class NottyeViewModel @Inject constructor(
                 }
                 getNottyes(event.noteOrder)
             }
+            is NottyeEvents.DeleteNottye -> {
+                viewModelScope.launch {
+                    nottyeUeCases.deleteNottye(event.nottye)
+                    recentlyDeletedNote = event.nottye
+                }
+            }
             is NottyeEvents.RestoreNottye -> {
                 viewModelScope.launch {
                     nottyeUeCases.addNottye(recentlyDeletedNote ?: return@launch)

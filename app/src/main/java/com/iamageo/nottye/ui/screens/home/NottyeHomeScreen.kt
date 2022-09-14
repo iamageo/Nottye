@@ -1,6 +1,7 @@
 package com.iamageo.nottye.ui.screens.home
 
 import androidx.compose.animation.*
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -8,8 +9,10 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -19,7 +22,10 @@ import com.iamageo.domain.util.NoteOrder
 import com.iamageo.domain.util.OrderType
 import com.iamageo.nottye.R
 import com.iamageo.nottye.Screens
+import com.iamageo.nottye.ui.screens.home.components.NottyeItem
 import com.iamageo.nottye.ui.screens.home.components.OrderSection
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -29,6 +35,8 @@ fun NottyeHomeScreen(
 ) {
 
     val state = viewModel.state.value
+    val scaffoldState = rememberScaffoldState()
+    val scope = rememberCoroutineScope()
 
     Scaffold(
         floatingActionButton = {
@@ -63,7 +71,8 @@ fun NottyeHomeScreen(
                     TopBarItem(icon = R.drawable.ic_settings) {}
                 }
             }
-        }
+        },
+        scaffoldState = scaffoldState
     ) {
         Column(
             modifier = Modifier
@@ -90,7 +99,29 @@ fun NottyeHomeScreen(
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(state.notes) { nottye ->
-                    Text(text = nottye.title, color = Color.Blue)
+                    NottyeItem(
+                        note = nottye,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                navController.navigate(
+                                    Screens.NottyeAddEditScreen.route +
+                                            "?noteId=${nottye.id}&noteColor=${nottye.color}"
+                                )
+                            },
+                        onDeleteClick = {
+                            viewModel.onEvent(NottyeEvents.DeleteNottye(nottye))
+                            scope.launch {
+                                val result = scaffoldState.snackbarHostState.showSnackbar(
+                                    message = "Note deleted",
+                                    actionLabel = "Undo"
+                                )
+                                if(result == SnackbarResult.ActionPerformed) {
+                                    viewModel.onEvent(NottyeEvents.RestoreNottye)
+                                }
+                            }
+                        }
+                    )
                 }
             }
 
