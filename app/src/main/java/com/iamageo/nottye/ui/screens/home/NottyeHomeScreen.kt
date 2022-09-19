@@ -1,5 +1,7 @@
 package com.iamageo.nottye.ui.screens.home
 
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.*
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -15,9 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.iamageo.domain.util.NoteOrder
 import com.iamageo.domain.util.OrderType
 import com.iamageo.nottye.R
@@ -141,4 +145,12 @@ fun TopBarItem(icon: Int, onClick: () -> Unit) {
             contentDescription = "Sort"
         )
     }
+}
+
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_NO)
+@Composable
+fun MyHomeScreen(){
+    val nav = rememberNavController()
+    NottyeHomeScreen(navController = nav)
 }
