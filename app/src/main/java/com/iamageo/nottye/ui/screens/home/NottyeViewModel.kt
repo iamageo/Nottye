@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.iamageo.domain.model.Nottye
 import com.iamageo.domain.usecases.NottyeUseCases
 import com.iamageo.domain.util.NoteOrder
+import com.iamageo.domain.util.OrderType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
@@ -25,6 +26,10 @@ class NottyeViewModel @Inject constructor(
     private var recentlyDeletedNote: Nottye? = null
 
     private var getNotesJob: Job? = null
+
+    init {
+        getNottyes(NoteOrder.Date(orderType = OrderType.Descending))
+    }
 
     fun onEvent(event: NottyeEvents) {
         when (event) {
