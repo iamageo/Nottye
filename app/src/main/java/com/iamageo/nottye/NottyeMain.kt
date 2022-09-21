@@ -20,7 +20,7 @@ class NottyeMain : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            NottyeTheme {
+            NottyeTheme(darkTheme = false) {
                 Surface(
                     color = MaterialTheme.colors.background
                 ) {

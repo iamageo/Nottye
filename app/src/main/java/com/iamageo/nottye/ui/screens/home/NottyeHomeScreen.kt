@@ -72,7 +72,7 @@ fun NottyeHomeScreen(
                     TopBarItem(icon = R.drawable.ic_sort) {
                         viewModel.onEvent(NottyeEvents.ToggleOrderSection)
                     }
-                    TopBarItem(icon = R.drawable.ic_settings) {}
+                    TopBarItem(icon = R.drawable.ic_day) {}
                 }
             }
         },
