@@ -8,4 +8,5 @@ sealed class NottyeEvents {
     object RestoreNottye : NottyeEvents()
     data class DeleteNottye(val nottye: Nottye) : NottyeEvents()
     object ToggleOrderSection : NottyeEvents()
+    object ChangeTheme : NottyeEvents()
 }

@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -12,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.iamageo.nottye.ui.screens.addedit.AddEditNottyeScreen
 import com.iamageo.nottye.ui.screens.home.NottyeHomeScreen
+import com.iamageo.nottye.ui.screens.home.NottyeViewModel
 import com.iamageo.nottye.ui.theme.NottyeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,7 +22,10 @@ class NottyeMain : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            NottyeTheme(darkTheme = false) {
+
+            val viewModel: NottyeViewModel = hiltViewModel()
+            NottyeTheme(darkTheme = true) {
+
                 Surface(
                     color = MaterialTheme.colors.background
                 ) {

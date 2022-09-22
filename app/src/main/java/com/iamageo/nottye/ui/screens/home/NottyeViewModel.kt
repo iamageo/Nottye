@@ -57,6 +57,9 @@ class NottyeViewModel @Inject constructor(
                 _state.value =
                     state.value.copy(isOrderSectionVisible = !state.value.isOrderSectionVisible)
             }
+            is NottyeEvents.ChangeTheme -> {
+                _state.value = state.value.copy(isDarkTheme = !state.value.isDarkTheme)
+            }
         }
     }
 
