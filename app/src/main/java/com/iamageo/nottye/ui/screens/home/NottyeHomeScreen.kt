@@ -104,7 +104,7 @@ fun NottyeHomeScreen(
             ) {
                 items(state.notes) { nottye ->
                     NottyeItem(
-                        note = nottye,
+                        nottye = nottye,
                         modifier = Modifier
                             .padding(bottom = 8.dp)
                             .fillMaxWidth()
