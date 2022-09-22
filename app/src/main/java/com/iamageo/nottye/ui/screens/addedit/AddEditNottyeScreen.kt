@@ -81,6 +81,7 @@ fun AddEditNottyeScreen(
             }
         },
         topBar = {
+            /*
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
@@ -89,6 +90,8 @@ fun AddEditNottyeScreen(
                     navController.popBackStack()
                 }
             }
+
+             */
         },
         scaffoldState = scaffoldState
 
