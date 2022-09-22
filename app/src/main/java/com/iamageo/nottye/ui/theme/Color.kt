@@ -2,6 +2,9 @@ package com.iamageo.nottye.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val paleWhite = Color(0xfff3f7f9)
+val paleBlack = Color(0xff222325)
+
 val Purple200 = Color(0xFFBB86FC)
 val Purple500 = Color(0xFF6200EE)
 val Purple700 = Color(0xFF3700B3)
