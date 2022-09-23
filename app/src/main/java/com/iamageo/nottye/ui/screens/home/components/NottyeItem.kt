@@ -28,7 +28,7 @@ fun NottyeItem(
 ) {
     Box(
         modifier = modifier.background(
-            color = if (isSystemInDarkTheme()) paleWhite else paleBlack,
+            color = if (isSystemInDarkTheme()) paleBlack else paleWhite,
             //shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp)
         )
     ) {
@@ -41,7 +41,7 @@ fun NottyeItem(
             Text(
                 text = nottye.title,
                 style = MaterialTheme.typography.h6,
-                color = MaterialTheme.colors.onSurface,
+                color = if (isSystemInDarkTheme()) Color.White else Color.Black,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
@@ -49,7 +49,7 @@ fun NottyeItem(
             Text(
                 text = nottye.content,
                 style = MaterialTheme.typography.body1,
-                color = MaterialTheme.colors.onSurface,
+                color = if (isSystemInDarkTheme()) Color.White else Color.Black,
                 maxLines = 10,
                 overflow = TextOverflow.Ellipsis
             )
@@ -61,7 +61,7 @@ fun NottyeItem(
             Icon(
                 imageVector = Icons.Default.Delete,
                 contentDescription = "Delete nottye",
-                tint = MaterialTheme.colors.onSurface
+                tint = if (isSystemInDarkTheme()) Color.White else Color.Black,
             )
         }
         Row(

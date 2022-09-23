@@ -70,9 +70,6 @@ fun NottyeHomeScreen(
                     TopBarItem(icon = R.drawable.ic_sort) {
                         viewModel.onEvent(NottyeEvents.ToggleOrderSection)
                     }
-                    TopBarItem(icon = if (viewModel.state.value.isDarkTheme) R.drawable.ic_night else R.drawable.ic_day) {
-                        viewModel.onEvent(NottyeEvents.ChangeTheme)
-                    }
                 }
             }
         },
@@ -118,7 +115,7 @@ fun NottyeHomeScreen(
                             viewModel.onEvent(NottyeEvents.DeleteNottye(nottye))
                             scope.launch {
                                 val result = scaffoldState.snackbarHostState.showSnackbar(
-                                    message = "Note deleted",
+                                    message = "Nottye deleted",
                                     actionLabel = "Undo"
                                 )
                                 if (result == SnackbarResult.ActionPerformed) {
