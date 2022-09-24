@@ -14,6 +14,7 @@ import androidx.navigation.navArgument
 import com.iamageo.nottye.ui.screens.addedit.AddEditNottyeScreen
 import com.iamageo.nottye.ui.screens.home.NottyeHomeScreen
 import com.iamageo.nottye.ui.screens.home.NottyeViewModel
+import com.iamageo.nottye.ui.screens.splash.NottyeSplashScreen
 import com.iamageo.nottye.ui.theme.NottyeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,8 +34,11 @@ class NottyeMain : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = Screens.NottyeHomeScreen.route
+                        startDestination = Screens.NottyeSplashScreen.route
                     ) {
+                        composable(route = Screens.NottyeSplashScreen.route) {
+                            NottyeSplashScreen(navController = navController)
+                        }
                         composable(route = Screens.NottyeHomeScreen.route) {
                             NottyeHomeScreen(navController = navController)
                         }

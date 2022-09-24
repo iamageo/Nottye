@@ -106,4 +106,8 @@ dependencies {
     //compose preview
     debugImplementation "androidx.compose.ui:ui-tooling:1.2.1"
     implementation "androidx.compose.ui:ui-tooling-preview:1.2.1"
+
+    //lottie
+    implementation 'com.airbnb.android:lottie-compose:5.2.0'
+    
 }
