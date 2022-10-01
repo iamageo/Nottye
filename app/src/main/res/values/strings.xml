@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">Nottye</string>
+
+    <!-- appp name -->
+    <string name="app_name">Nottye - Minimalist note</string>
+
+    <!-- home screen -->
+    <string name="home_title">Nottye</string>
+    <string name="home_content_description_fab">Button for add nottye</string>
+    <string name="home_deleted_note_title">Deleted nottye</string>
+    <string name="home_deleted_note_undo">Undo</string>
+
+    <!-- add edit nottye screen -->
+    <string name="add_edit_nottye_description_fab">Button for save nottye</string>
+
 </resources>

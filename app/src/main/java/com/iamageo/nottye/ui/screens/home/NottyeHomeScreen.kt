@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -51,7 +52,7 @@ fun NottyeHomeScreen(
                 Icon(
                     imageVector = Icons.Default.Add,
                     tint = MaterialTheme.colors.secondary,
-                    contentDescription = "Add"
+                    contentDescription = stringResource(id = R.string.home_content_description_fab)
                 )
             }
         },
@@ -62,7 +63,7 @@ fun NottyeHomeScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Nottye",
+                    text = stringResource(id = R.string.home_title),
                     style = MaterialTheme.typography.h4,
                     modifier = Modifier.padding(start = 8.dp)
                 )
@@ -115,8 +116,8 @@ fun NottyeHomeScreen(
                             viewModel.onEvent(NottyeEvents.DeleteNottye(nottye))
                             scope.launch {
                                 val result = scaffoldState.snackbarHostState.showSnackbar(
-                                    message = "Nottye deleted",
-                                    actionLabel = "Undo"
+                                    message = "Nota deletada",
+                                    actionLabel = "Desfazer?"
                                 )
                                 if (result == SnackbarResult.ActionPerformed) {
                                     viewModel.onEvent(NottyeEvents.RestoreNottye)

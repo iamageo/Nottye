@@ -24,8 +24,7 @@ class NottyeMain : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-            val viewModel: NottyeViewModel = hiltViewModel()
-            NottyeTheme(darkTheme = true) {
+            NottyeTheme(darkTheme = false) {
 
                 Surface(
                     color = MaterialTheme.colors.background

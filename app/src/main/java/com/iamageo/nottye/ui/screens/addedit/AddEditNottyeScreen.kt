@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -76,7 +77,7 @@ fun AddEditNottyeScreen(
                 Icon(
                     painter = painterResource(id = R.drawable.ic_save),
                     tint = Color.White,
-                    contentDescription = "Save nottye"
+                    contentDescription = stringResource(id = R.string.add_edit_nottye_description_fab)
                 )
             }
         },
