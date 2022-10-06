@@ -70,44 +70,43 @@ dependencies {
     kapt Deps.daggerHilt_hilt_compiler
 
     // Room
-    implementation "androidx.room:room-runtime:2.3.0"
-    kapt "androidx.room:room-compiler:2.3.0"
-
+    implementation Deps.roomRuntime
+    kapt  Deps.roomCompiler
     // Kotlin Extensions and Coroutines support for Room
-    implementation "androidx.room:room-ktx:2.3.0"
+    implementation Deps.roomKtx
 
     // Local unit tests
-    testImplementation "androidx.test:core:1.4.0"
-    testImplementation "junit:junit:4.13.2"
-    testImplementation "androidx.arch.core:core-testing:2.1.0"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1"
-    testImplementation "com.google.truth:truth:1.1.3"
-    testImplementation "com.squareup.okhttp3:mockwebserver:4.9.1"
-    testImplementation "io.mockk:mockk:1.10.5"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:1.1.0-alpha04"
+    testImplementation Deps.androdXTestCore
+    testImplementation Deps.junitTest
+    testImplementation  Deps.androidcArch
+    testImplementation  Deps.kotlinCoroutineTest
+    testImplementation Deps.googleTruth
+    testImplementation Deps.okHttp
+    testImplementation Deps.mocck
+    debugImplementation Deps.composeTest
 
     // Instrumentation tests
-    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.37'
-    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.37'
-    androidTestImplementation "junit:junit:4.13.2"
-    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1"
-    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
-    androidTestImplementation "com.google.truth:truth:1.1.3"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test:core-ktx:1.4.0'
-    androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.9.1"
-    androidTestImplementation "io.mockk:mockk-android:1.10.5"
-    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation Deps.daggerHiltTesting
+    kaptAndroidTest Deps.daggerHiltCompiler
+    androidTestImplementation Deps.junitTest
+    androidTestImplementation Deps.kotlinCoroutineTest
+    androidTestImplementation Deps.androidcArch
+    androidTestImplementation Deps.googleTruth
+    androidTestImplementation Deps.androidExtJunitTest
+    androidTestImplementation Deps.androidxCoreKtx
+    androidTestImplementation Deps.okHttp
+    androidTestImplementation Deps.mocck
+    androidTestImplementation Deps.androidxTestRunner
 
     //navigation
-    implementation "androidx.navigation:navigation-compose:2.5.1"
-    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    implementation Deps.androidxNavigation
+    implementation Deps.hiltNavigation
 
     //compose preview
-    debugImplementation "androidx.compose.ui:ui-tooling:1.2.1"
-    implementation "androidx.compose.ui:ui-tooling-preview:1.2.1"
+    debugImplementation Deps.composePreviewTooling
+    implementation Deps.composePreview
 
     //lottie
-    implementation 'com.airbnb.android:lottie-compose:5.2.0'
+    implementation Deps.lottie
     
 }
