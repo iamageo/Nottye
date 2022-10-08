@@ -16,3 +16,7 @@ Nottye is minimalist note app implemented with modern Android development (Hilt,
 # Modularization
 ![modularization](https://user-images.githubusercontent.com/26925002/194191324-0dde9ac8-2077-4be8-8b78-4ea7ff878347.png)
 
+## MAD Score
+![summary](https://user-images.githubusercontent.com/24237865/102366914-84f6b000-3ffc-11eb-8d49-b20694239782.png)
+![kotlin](https://user-images.githubusercontent.com/24237865/102366932-8a53fa80-3ffc-11eb-8131-fd6745a6f079.png)
+
