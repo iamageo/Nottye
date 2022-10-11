@@ -3,6 +3,7 @@ package com.iamageo.nottye.ui.screens.home
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
@@ -14,10 +15,12 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -68,7 +71,7 @@ fun NottyeHomeScreen(
                     modifier = Modifier.padding(start = 8.dp)
                 )
                 Row() {
-                    TopBarItem(icon = R.drawable.ic_sort) {
+                    TopBarItem(state.isOrderSectionVisible) {
                         viewModel.onEvent(NottyeEvents.ToggleOrderSection)
                     }
                 }
@@ -133,15 +136,28 @@ fun NottyeHomeScreen(
 }
 
 @Composable
-fun TopBarItem(icon: Int, onClick: () -> Unit) {
+fun TopBarItem(
+    open: Boolean,
+    fabState: MutableState<FabState> = rememberFabState(),
+    stateChanged: (fabState: FabState) -> Unit = {},
+    onClick: () -> Unit,
+) {
+
+    val rotation by animateFloatAsState(
+        if (fabState.value == FabState.Expand) 45f else 0f
+    )
+
     IconButton(
         onClick = {
             onClick.invoke()
+            fabState.value = fabState.value.toggleValue()
+            stateChanged(fabState.value)
         },
     ) {
         Icon(
-            painter = painterResource(id = icon),
-            contentDescription = "Sort"
+            painter = painterResource(id = if (open) R.drawable.ic_close else R.drawable.ic_sort),
+            contentDescription = "Sort",
+            modifier = Modifier.rotate(rotation)
         )
     }
 }
