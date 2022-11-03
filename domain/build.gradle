@@ -44,4 +44,27 @@ dependencies {
     implementation Deps.roomRuntime
     kapt  Deps.roomCompiler
 
+    // Local unit tests
+    testImplementation Deps.androdXTestCore
+    testImplementation Deps.junitTest
+    testImplementation  Deps.androidcArch
+    testImplementation  Deps.kotlinCoroutineTest
+    testImplementation Deps.googleTruth
+    testImplementation Deps.okHttp
+    testImplementation Deps.mocck
+    debugImplementation Deps.composeTest
+
+    // Instrumentation tests
+    androidTestImplementation Deps.daggerHiltTesting
+    kaptAndroidTest Deps.daggerHiltCompiler
+    androidTestImplementation Deps.junitTest
+    androidTestImplementation Deps.kotlinCoroutineTest
+    androidTestImplementation Deps.androidcArch
+    androidTestImplementation Deps.googleTruth
+    androidTestImplementation Deps.androidExtJunitTest
+    androidTestImplementation Deps.androidxCoreKtx
+    androidTestImplementation Deps.okHttp
+    androidTestImplementation Deps.mocck
+    androidTestImplementation Deps.androidxTestRunner
+
 }
