@@ -21,6 +21,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -32,6 +33,7 @@ import com.iamageo.nottye.R
 import com.iamageo.nottye.Screens
 import com.iamageo.nottye.ui.screens.home.components.NottyeItem
 import com.iamageo.nottye.ui.screens.home.components.OrderSection
+import com.iamageo.nottye.util.TestTags
 import kotlinx.coroutines.launch
 
 @Composable
@@ -92,7 +94,9 @@ fun NottyeHomeScreen(
                 OrderSection(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp),
+                        .padding(vertical = 16.dp)
+                        .testTag(TestTags.ORDER_SECTION)
+                    ,
                     noteOrder = state.noteOrder,
                     onOrderChange = {
                         viewModel.onEvent(NottyeEvents.Order(it))
