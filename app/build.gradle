@@ -96,7 +96,7 @@ dependencies {
     androidTestImplementation Deps.androidxCoreKtx
     androidTestImplementation Deps.okHttp
     androidTestImplementation Deps.mocck
-    androidTestImplementation Deps.androidxTestRunner
+    //androidTestImplementation Deps.androidxTestRunner
 
     //navigation
     implementation Deps.androidxNavigation
@@ -109,6 +109,5 @@ dependencies {
     //lottie
     implementation Deps.lottie
 
-    implementation 'androidx.compose.ui:ui-test-junit4:1.3.0'
     
 }

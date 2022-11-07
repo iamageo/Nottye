@@ -31,6 +31,7 @@ import com.iamageo.nottye.Screens
 import com.iamageo.nottye.Utils.Companion.NottyeColors
 import com.iamageo.nottye.ui.screens.addedit.components.NottyeEditText
 import com.iamageo.nottye.ui.screens.home.TopBarItem
+import com.iamageo.nottye.util.TestTags
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -156,6 +157,7 @@ fun AddEditNottyeScreen(
                 isHintVisible = titleState.isHintVisible,
                 singleLine = true,
                 textStyle = MaterialTheme.typography.h5,
+                testTag = TestTags.TITLE_TEXT_FIELD
             )
             Spacer(modifier = Modifier.height(16.dp))
             NottyeEditText(
@@ -170,6 +172,7 @@ fun AddEditNottyeScreen(
                 isHintVisible = contentState.isHintVisible,
                 textStyle = MaterialTheme.typography.body1,
                 modifier = Modifier.fillMaxHeight(),
+                testTag = TestTags.CONTENT_TEXT_FIELD
             )
         }
     }
