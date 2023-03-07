@@ -30,10 +30,10 @@ fun NottyeSplashScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.todo))
+        val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.note_animation))
         val logoAnimationState = animateLottieCompositionAsState(composition = composition)
         LottieAnimation(
-            modifier = Modifier.width(100.dp),
+            modifier = Modifier.width(200.dp),
             composition = composition,
             progress = { logoAnimationState.progress }
         )
