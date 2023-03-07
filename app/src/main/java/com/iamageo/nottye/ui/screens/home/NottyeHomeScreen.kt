@@ -30,6 +30,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.iamageo.nottye.R
 import com.iamageo.nottye.Screens
 import com.iamageo.nottye.ui.screens.home.components.NottyeItem
@@ -105,6 +109,24 @@ fun NottyeHomeScreen(
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
+            
+            if(state.notes.isEmpty()) {
+                val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.astronaut))
+                val logoAnimationState = animateLottieCompositionAsState(composition = composition)
+
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    LottieAnimation(
+                        modifier = Modifier.width(200.dp),
+                        composition = composition,
+                        progress = { logoAnimationState.progress }
+                    )
+                    Text(modifier = Modifier.padding(8.dp), text = "You haven't added any notes yet.")
+                }
+            }
             LazyColumn(
                 modifier = Modifier.fillMaxSize()
             ) {
