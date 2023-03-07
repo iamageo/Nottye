@@ -32,14 +32,14 @@ class AddEditNottyeViewModel @Inject constructor(
 
     private val _noteTitle = mutableStateOf(
         NottyeEditTextState(
-            hint = "Enter title..."
+            hint = "Enter nottye title"
         )
     )
     val noteTitle: State<NottyeEditTextState> = _noteTitle
 
     private val _noteContent = mutableStateOf(
         NottyeEditTextState(
-            hint = "Enter some content"
+            hint = "Enter nottye description"
         )
     )
     val noteContent: State<NottyeEditTextState> = _noteContent

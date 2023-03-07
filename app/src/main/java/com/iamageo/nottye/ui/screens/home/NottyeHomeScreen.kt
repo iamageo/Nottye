@@ -2,6 +2,7 @@ package com.iamageo.nottye.ui.screens.home
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.content.res.Resources
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.fadeIn
@@ -123,8 +124,8 @@ fun NottyeHomeScreen(
                             viewModel.onEvent(NottyeEvents.DeleteNottye(nottye))
                             scope.launch {
                                 val result = scaffoldState.snackbarHostState.showSnackbar(
-                                    message = "Nota deletada",
-                                    actionLabel = "Desfazer?"
+                                    message = "Deleted nottye",
+                                    actionLabel = "Undo"
                                 )
                                 if (result == SnackbarResult.ActionPerformed) {
                                     viewModel.onEvent(NottyeEvents.RestoreNottye)
