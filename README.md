@@ -12,6 +12,10 @@ Nottye is minimalist note app implemented with modern Android development (Hilt,
     <img alt="stars" src="https://img.shields.io/github/stars/iamageo/Nottye?style=social"/>
 </p>
 
+
+## Download
+<a href='https://play.google.com/store/apps/details?id=com.iamageo.nottye&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="20%"/></a>
+
 ## Screenshots
 <p align="center">
 <img src="https://user-images.githubusercontent.com/26925002/223728367-5c13ef5f-bafc-4300-b5cc-8cc505aa8f93.png" width="100%"/>
