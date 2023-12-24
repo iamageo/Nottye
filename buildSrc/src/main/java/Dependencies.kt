@@ -14,12 +14,12 @@ object Versions {
     val coroutineAndroid_version = "1.5.1"
 
     //Dagger Hilt
-    val daggerHilt_version = "2.38.1"
-    val daggerCompiler_version = "2.37"
-    val daggerHiltCompiler = "1.0.0"
+    const val daggerHilt_version = "2.42"
+    const val daggerCompiler_version = "2.42"
+    const val daggerHiltCompiler = "1.0.0"
 
     //Room
-    val room_version = "2.3.0"
+    val room_version = "2.4.0-beta02"
 
     //unit tests
     val androdXTestCore_version = "1.4.0"

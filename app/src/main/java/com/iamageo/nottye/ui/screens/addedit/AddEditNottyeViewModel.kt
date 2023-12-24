@@ -11,6 +11,7 @@ import com.iamageo.domain.model.Nottye
 import com.iamageo.domain.usecases.NottyeUseCases
 import com.iamageo.nottye.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
@@ -93,7 +94,7 @@ class AddEditNottyeViewModel @Inject constructor(
                 _noteColor.value = event.color
             }
             is AddEditNottyeEvents.SaveNote -> {
-                viewModelScope.launch {
+                viewModelScope.launch(Dispatchers.IO) {
                     try {
                         nottyeUseCases.addNottye(
                             Nottye(

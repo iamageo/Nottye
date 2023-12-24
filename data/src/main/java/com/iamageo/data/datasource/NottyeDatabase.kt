@@ -6,7 +6,8 @@ import com.iamageo.domain.model.Nottye
 
 @Database(
     entities = [Nottye::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class NottyeDatabase : RoomDatabase() {
 

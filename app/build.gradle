@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.iamageo.nottye"
-        minSdk 21
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -19,6 +19,13 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
+
     }
 
     buildTypes {

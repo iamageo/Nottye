@@ -11,12 +11,12 @@ interface NottyeDao {
     fun getAllNottyes() : Flow<List<Nottye>>
 
     @Query("SELECT * FROM nottye WHERE id = :id")
-    suspend fun getNottyesById(id: Int) : Nottye?
+    fun getNottyesById(id: Int) : Nottye?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNottye(nottye: Nottye)
+    fun insertNottye(nottye: Nottye) : Long
 
     @Delete
-    suspend fun deleteNottye(nottye: Nottye)
+    fun deleteNottye(nottye: Nottye) : Int
 
 }

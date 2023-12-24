@@ -16,12 +16,19 @@ class FakeNottyeRepository : NottyeRepository {
         return nottyes.find { it.id == id }
     }
 
-    override suspend fun insertNottye(nottye: Nottye) {
-        nottyes.add(nottye)
+    override suspend fun insertNottye(nottye: Nottye): Long {
+        if (nottye.id == null) {
+            val newId = (nottyes.maxOfOrNull { it.id ?: 0 } ?: 0) + 1
+            nottyes.add(nottye.copy(id = newId))
+            return newId.toLong()
+        } else {
+            nottyes.add(nottye)
+            return nottye.id.toLong()
+        }
     }
 
-    override suspend fun deleteNottye(nottye: Nottye) {
-        nottyes.remove(nottye)
+    override suspend fun deleteNottye(nottye: Nottye): Int {
+        return if (nottyes.remove(nottye)) 1 else 0
     }
 
 }

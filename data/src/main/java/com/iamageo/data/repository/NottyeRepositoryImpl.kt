@@ -16,11 +16,11 @@ class NottyeRepositoryImpl(
         return nottyeDao.getNottyesById(id)
     }
 
-    override suspend fun insertNottye(nottye: Nottye) {
+    override suspend fun insertNottye(nottye: Nottye): Long {
         return nottyeDao.insertNottye(nottye = nottye)
     }
 
-    override suspend fun deleteNottye(nottye: Nottye) {
+    override suspend fun deleteNottye(nottye: Nottye) : Int {
         return nottyeDao.deleteNottye(nottye = nottye)
     }
 }

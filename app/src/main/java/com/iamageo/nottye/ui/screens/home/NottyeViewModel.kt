@@ -9,6 +9,7 @@ import com.iamageo.domain.usecases.NottyeUseCases
 import com.iamageo.domain.util.NoteOrder
 import com.iamageo.domain.util.OrderType
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -42,7 +43,7 @@ class NottyeViewModel @Inject constructor(
                 getNottyes(event.noteOrder)
             }
             is NottyeEvents.DeleteNottye -> {
-                viewModelScope.launch {
+                viewModelScope.launch(Dispatchers.IO) {
                     nottyeUeCases.deleteNottye(event.nottye)
                     recentlyDeletedNote = event.nottye
                 }

@@ -10,8 +10,8 @@ interface NottyeRepository {
 
     suspend fun getNottyeById(id: Int) : Nottye?
 
-    suspend fun insertNottye(nottye: Nottye)
+    suspend fun insertNottye(nottye: Nottye) : Long
 
-    suspend fun deleteNottye(nottye: Nottye)
+    suspend fun deleteNottye(nottye: Nottye) : Int
 
 }
