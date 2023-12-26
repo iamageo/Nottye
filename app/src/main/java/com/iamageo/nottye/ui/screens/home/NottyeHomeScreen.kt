@@ -124,7 +124,7 @@ fun NottyeHomeScreen(
                         composition = composition,
                         progress = { logoAnimationState.progress }
                     )
-                    Text(modifier = Modifier.padding(8.dp), text = "You haven't added any notes yet.")
+                    Text(modifier = Modifier.padding(8.dp), text = "Nenhuma nota adicionada.")
                 }
             }
             LazyColumn(
@@ -146,8 +146,8 @@ fun NottyeHomeScreen(
                             viewModel.onEvent(NottyeEvents.DeleteNottye(nottye))
                             scope.launch {
                                 val result = scaffoldState.snackbarHostState.showSnackbar(
-                                    message = "Deleted nottye",
-                                    actionLabel = "Undo"
+                                    message = "Nota deletada",
+                                    actionLabel = "Desfazer?"
                                 )
                                 if (result == SnackbarResult.ActionPerformed) {
                                     viewModel.onEvent(NottyeEvents.RestoreNottye)
@@ -171,7 +171,7 @@ fun TopBarItem(
 ) {
 
     val rotation by animateFloatAsState(
-        if (fabState.value == FabState.Expand) 45f else 0f
+        if (fabState.value == FabState.Expand) 90f else 0f
     )
 
     IconButton(

@@ -15,6 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,14 +34,14 @@ class AddEditNottyeViewModel @Inject constructor(
 
     private val _noteTitle = mutableStateOf(
         NottyeEditTextState(
-            hint = "Enter nottye title"
+            hint = "Informe o título da sua nota.."
         )
     )
     val noteTitle: State<NottyeEditTextState> = _noteTitle
 
     private val _noteContent = mutableStateOf(
         NottyeEditTextState(
-            hint = "Enter nottye description"
+            hint = "Informe o conteúdo da sua nota.."
         )
     )
     val noteContent: State<NottyeEditTextState> = _noteContent
@@ -48,20 +49,23 @@ class AddEditNottyeViewModel @Inject constructor(
     init {
         savedStateHandle.get<Int>("noteId")?.let { noteId ->
             if(noteId != -1) {
-                viewModelScope.launch {
+                viewModelScope.launch(Dispatchers.IO) {
                     nottyeUseCases.getNottye(noteId)?.also { note ->
-                        currentNoteId = note.id
-                        _noteTitle.value = noteTitle.value.copy(
-                            text = note.title,
-                            isHintVisible = false
-                        )
-                        _noteContent.value = _noteContent.value.copy(
-                            text = note.content,
-                            isHintVisible = false
-                        )
-                        _noteColor.value = note.color
+                        withContext(Dispatchers.Main) {
+                            currentNoteId = note.id
+                            _noteTitle.value = noteTitle.value.copy(
+                                text = note.title,
+                                isHintVisible = false
+                            )
+                            _noteContent.value = _noteContent.value.copy(
+                                text = note.content,
+                                isHintVisible = false
+                            )
+                            _noteColor.value = note.color
+                        }
                     }
                 }
+
             }
         }
     }

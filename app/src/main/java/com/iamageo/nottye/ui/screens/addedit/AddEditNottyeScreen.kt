@@ -82,19 +82,6 @@ fun AddEditNottyeScreen(
                 )
             }
         },
-        topBar = {
-            /*
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                TopBarItem(icon = R.drawable.ic_back) {
-                    navController.popBackStack()
-                }
-            }
-
-             */
-        },
         scaffoldState = scaffoldState
 
     ) {
