@@ -1,30 +1,28 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
-    compileSdk 33
+    namespace 'com.iamageo.nottye'
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.iamageo.nottye"
         minSdk 26
-        targetSdk 33
+        targetSdk 35
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "com.iamageo.nottye.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary true
         }
 
-        kapt {
-            arguments {
-                arg("room.schemaLocation", "$projectDir/schemas")
-            }
-        }
 
     }
 
@@ -32,6 +30,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
         }
     }
     compileOptions {
@@ -41,12 +40,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         compose true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion compose_version
-    }
+
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
@@ -56,65 +54,48 @@ android {
 
 dependencies {
 
-    //layers
-    implementation project(path: ':domain')
-    implementation project(path: ':data')
+    /* multidex */
+    implementation libs.androidx.multidex
 
-    implementation Deps.kotlin_core
-    implementation Deps.compose_ui
-    implementation Deps.compose_material
-    implementation Deps.compose_tooling_preview
-    implementation Deps.androidx_lifecycle
-    implementation Deps.androidx_activity
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.ui.material)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
 
-    // Coroutines
-    implementation Deps.coroutinesCore
-    implementation Deps.coroutineAndroid
+    /* viewModel */
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
 
-    //Dagger - Hilt
-    implementation Deps.daggerHilt
-    kapt Deps.daggerHilt_compiler
-    kapt Deps.daggerHilt_hilt_compiler
+    /* di */
+    implementation(libs.hilt.android)
 
-    // Room
-    implementation Deps.roomRuntime
-    kapt  Deps.roomCompiler
-    // Kotlin Extensions and Coroutines support for Room
-    implementation Deps.roomKtx
+    ksp(libs.hilt.android.compiler)
+    kspAndroidTest(libs.hilt.android.compiler)
 
-    // Local unit tests
-    testImplementation Deps.androdXTestCore
-    testImplementation Deps.junitTest
-    testImplementation  Deps.androidcArch
-    testImplementation  Deps.kotlinCoroutineTest
-    testImplementation Deps.googleTruth
-    testImplementation Deps.okHttp
-    testImplementation Deps.mocck
-    debugImplementation Deps.composeTest
+    /* database */
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
-    // Instrumentation tests
-    androidTestImplementation Deps.daggerHiltTesting
-    kaptAndroidTest Deps.daggerHiltCompiler
-    androidTestImplementation Deps.junitTest
-    androidTestImplementation Deps.kotlinCoroutineTest
-    androidTestImplementation Deps.androidcArch
-    androidTestImplementation Deps.googleTruth
-    androidTestImplementation Deps.androidExtJunitTest
-    androidTestImplementation Deps.androidxCoreKtx
-    androidTestImplementation Deps.okHttp
-    androidTestImplementation Deps.mocck
-    //androidTestImplementation Deps.androidxTestRunner
+    /* lottie */
+    implementation(libs.lottie)
 
-    //navigation
-    implementation Deps.androidxNavigation
-    implementation Deps.hiltNavigation
+    implementation project(':data')
+    implementation project(':domain')
 
-    //compose preview
-    debugImplementation Deps.composePreviewTooling
-    implementation Deps.composePreview
+    /* test libraries */
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 
-    //lottie
-    implementation Deps.lottie
 
-    
 }

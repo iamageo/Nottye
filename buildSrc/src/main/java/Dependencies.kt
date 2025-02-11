@@ -3,7 +3,7 @@
 object Versions {
 
     //main
-    val kotlin_version = "1.8.0"
+    val kotlin_version = "1.15.0"
     val compose_version = "1.1.0-beta01"
     val androidxLifecycle_version = "2.3.1"
     val androidxActivity_version = "1.3.1"
@@ -16,7 +16,6 @@ object Versions {
     //Dagger Hilt
     const val daggerHilt_version = "2.42"
     const val daggerCompiler_version = "2.42"
-    const val daggerHiltCompiler = "1.0.0"
 
     //Room
     val room_version = "2.4.0-beta02"
@@ -67,7 +66,6 @@ object Deps {
     //Dagger Hilt
     val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHilt_version}"
     val daggerHilt_compiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerCompiler_version}"
-    val daggerHilt_hilt_compiler = "androidx.hilt:hilt-compiler:${Versions.daggerHiltCompiler}"
 
     //Room
     val roomRuntime = "androidx.room:room-runtime:${Versions.room_version}"

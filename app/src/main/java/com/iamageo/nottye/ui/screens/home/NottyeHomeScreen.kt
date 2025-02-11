@@ -85,7 +85,7 @@ fun NottyeHomeScreen(
             }
         },
         scaffoldState = scaffoldState
-    ) {
+    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -189,8 +189,7 @@ fun TopBarItem(
     }
 }
 
-@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
-@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_NO)
+@Preview(showBackground = true)
 @Composable
 fun MyHomeScreen() {
     val nav = rememberNavController()

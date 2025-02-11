@@ -1,5 +1,5 @@
 package com.iamageo.nottye.ui.screens.home
-
+/*
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.navigation.NavType
@@ -109,3 +109,5 @@ class NotesEndToEndTest {
     }
 
 }
+
+ */

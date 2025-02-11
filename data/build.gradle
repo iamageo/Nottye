@@ -1,15 +1,16 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
 }
 
 android {
-    compileSdk 33
+    namespace 'com.iamageo.data'
+    compileSdk 34
 
     defaultConfig {
         minSdk 26
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -27,22 +28,19 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
 
     implementation project(path: ':domain')
 
-    implementation Deps.kotlin_core
-    implementation Deps.androidMaterialDesign
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    // Coroutines
-    implementation Deps.coroutinesCore
-    implementation Deps.coroutineAndroid
-
-    // Room
-    implementation Deps.roomRuntime
-    kapt Deps.roomCompiler
-    implementation Deps.roomKtx
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
 }

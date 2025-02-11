@@ -4,7 +4,7 @@
     package="com.iamageo.nottye">
 
     <application
-        android:name=".di.NottyeApp"
+        android:name="com.iamageo.nottye.di.NottyeApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,7 +17,6 @@
         <activity
             android:name=".NottyeMain"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.Nottye">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
