@@ -111,7 +111,7 @@ class AddEditNottyeViewModel @Inject constructor(
                         )
                         _eventFlow.emit(UiEvents.SaveNottye)
                     } catch (e: InvalidNottyeException) {
-
+                        _eventFlow.emit(UiEvents.ShowSnackbar(e.message ?: "Erro ao salvar a nota"))
                     }
                 }
             }
@@ -120,7 +120,7 @@ class AddEditNottyeViewModel @Inject constructor(
 
     sealed class UiEvents() {
         data class ShowSnackbar(val message: String) : UiEvents()
-        object SaveNottye : UiEvents()
+        data object SaveNottye : UiEvents()
     }
 
 }

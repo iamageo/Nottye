@@ -58,6 +58,7 @@ fun AddEditNottyeScreen(
         addEditNottyeViewModel.eventFlow.collectLatest { event ->
             when(event) {
                 is AddEditNottyeViewModel.UiEvents.ShowSnackbar -> {
+                    scaffoldState.snackbarHostState.showSnackbar(message = event.message)
                 }
                 is AddEditNottyeViewModel.UiEvents.SaveNottye -> {
                     navController.navigateUp()
