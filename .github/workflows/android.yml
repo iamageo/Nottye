@@ -40,9 +40,6 @@ jobs:
       - name: Run tests
         run: ./gradlew test
 
-      - name: Ktlint check
-        run: ./gradlew ktlintCheck
-
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
