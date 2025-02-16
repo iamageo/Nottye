@@ -5,6 +5,7 @@ plugins {
 }
 
 android {
+    namespace 'com.iamageo.domain'
     compileSdk 35
 
     defaultConfig {
@@ -25,9 +26,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8
     }
-    namespace 'com.iamageo.domain'
+
 }
 
 dependencies {
@@ -35,6 +36,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.app.compat)
+    implementation(libs.google.material)
 
     // Room
     implementation(libs.androidx.room.runtime)

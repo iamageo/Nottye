@@ -6,11 +6,11 @@ plugins {
 
 android {
     namespace 'com.iamageo.data'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         minSdk 26
-        targetSdk 34
+        targetSdk 35
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -21,12 +21,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8
     }
 
 }
@@ -37,6 +38,8 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.app.compat)
+    implementation(libs.google.material)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
     implementation(libs.androidx.room.runtime)
