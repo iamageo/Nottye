@@ -1,8 +1,6 @@
 package com.iamageo.nottye.ui.screens.home
 
-import android.content.res.Configuration.UI_MODE_NIGHT_NO
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import android.content.res.Resources
+import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.fadeIn
@@ -41,6 +39,7 @@ import com.iamageo.nottye.ui.screens.home.components.OrderSection
 import com.iamageo.nottye.util.TestTags
 import kotlinx.coroutines.launch
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun NottyeHomeScreen(
     navController: NavController,
@@ -85,7 +84,7 @@ fun NottyeHomeScreen(
             }
         },
         scaffoldState = scaffoldState
-    ) { paddingValues ->
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
