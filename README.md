@@ -16,17 +16,13 @@ Nottye is minimalist note app implemented with modern Android development (Hilt,
 [![Android Unit Test](https://github.com/iamageo/Nottye/actions/workflows/android_unit_test.yml/badge.svg)](https://github.com/iamageo/Nottye/actions/workflows/android_unit_test.yml)
 [![Dependabot Updates](https://github.com/iamageo/Nottye/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/iamageo/Nottye/actions/workflows/dependabot/dependabot-updates)
 
-
-## Download
-<a href='https://play.google.com/store/apps/details?id=com.iamageo.nottye&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="20%"/></a>
-
 ## Screenshots
 <p align="center">
 <img src="https://user-images.githubusercontent.com/26925002/223728367-5c13ef5f-bafc-4300-b5cc-8cc505aa8f93.png" width="100%"/>
 </p>
 
 ## Tech stack & Open-source libraries
-- Minimum SDK level 21
+- Minimum SDK level 26
 - 100% [Kotlin](https://kotlinlang.org/) based + [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://developer.android.com/kotlin/flow)
 - Architecture
   - [Clean Architecure](https://developer.android.com/jetpack/guide) 
